@@ -10,6 +10,7 @@ type Item struct {
 
 type Recipe struct {
 	Ingredients []Ingredient
+	itemRef     *Item
 	ItemName    string
 	Count       int
 	Time        float32

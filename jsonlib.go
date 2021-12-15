@@ -90,13 +90,14 @@ func CreateRecipes() []Recipe {
 }
 
 func LoadJsonTest() {
-	unstructuredJson := ReadFromFile("RecipeTest.txt")
+	unstructuredJson := ReadFromFile("Recipes2.Json")
+	//fmt.Println(unstructuredJson)
 
-	var result map[string]interface{}
+	var result []map[string]interface{}
 
 	json.Unmarshal([]byte(unstructuredJson), &result)
 
-	fmt.Println(result["ItemName"])
+	//fmt.Println(result["ItemName"])
 	fmt.Println(result)
 }
 

@@ -1,0 +1,1 @@
+[{"ItemName":"IronGear","Count":1,"Time":0.5,"Ingredients":[{"ItemName":"IronPlate","Count":2}]},{"ItemName":"TransportBelt","Count":2,"Time":0.5,"Ingredients":[{"ItemName":"IronPlate","Count":1},{"ItemName":"IronGear","Count":1}]},{"ItemName":"AutoSciencePack","Count":1,"Time":5,"Ingredients":[{"ItemName":"IronGear","Count":1},{"ItemName":"CopperPlate","Count":1}]}]
