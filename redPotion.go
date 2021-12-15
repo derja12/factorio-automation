@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type Item struct {
 	Name    string
 	recipe  *Recipe
@@ -31,7 +29,8 @@ func InitializeRedPotionItems() error {
 	copperPlateItem := InitializeCopperPlate()
 	IronGearItem := InitializeIronGear()
 
-	fmt.Println(copperPlateItem.Name, copperPlateItem.recipe, copperPlateItem.machine, IronGearItem.Name, IronGearItem.recipe.ingredients[0].item.Name)
+	copperPlateItem.recipe.printRecipe()
+	IronGearItem.recipe.printRecipe()
 	return nil
 }
 
@@ -46,10 +45,11 @@ func InitializeCopperPlate() *Item {
 	}
 
 	// Create Copper Plate Recipe
-	var ingredientsList []*Ingredient
-	ingredientsList = append(ingredientsList, copperOreIngredient)
+	var ingredientsList []Ingredient
+	ingredientsList = append(ingredientsList, *copperOreIngredient)
 	copperPlateRecipe := &Recipe{
-		ingredients: ingredientsList,
+		ItemName:    "Copper Plate",
+		Ingredients: ingredientsList,
 		Count:       1,
 		Time:        3.2,
 	}
@@ -75,10 +75,10 @@ func InitializeIronGear() *Item {
 	}
 
 	// Create Iron Plate Recipe
-	var ingredientsList []*Ingredient
-	ingredientsList = append(ingredientsList, ironOreIngredient)
+	var ingredientsList []Ingredient
+	ingredientsList = append(ingredientsList, *ironOreIngredient)
 	ironPlateRecipe := &Recipe{
-		ingredients: ingredientsList,
+		Ingredients: ingredientsList,
 		Count:       1,
 		Time:        3.2,
 	}
@@ -95,10 +95,11 @@ func InitializeIronGear() *Item {
 	}
 
 	// Create Iron Gear Recipe
-	ingredientsList = []*Ingredient{}
-	ingredientsList = append(ingredientsList, ironPlateIngredient)
+	ingredientsList = []Ingredient{}
+	ingredientsList = append(ingredientsList, *ironPlateIngredient)
 	ironGearRecipe := &Recipe{
-		ingredients: ingredientsList,
+		ItemName:    "Iron Gear",
+		Ingredients: ingredientsList,
 		Count:       1,
 		Time:        .5,
 	}
