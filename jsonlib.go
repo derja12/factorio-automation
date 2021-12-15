@@ -1,3 +1,13 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"os"
+)
+
 func SaveJsonTest() {
 
 	recipeList := CreateRecipes()
@@ -88,10 +98,6 @@ func LoadJsonTest() {
 
 	fmt.Println(result["ItemName"])
 	fmt.Println(result)
-}
-
-func (i Item) GetIngredient(newCount int) Ingredient {
-	return Ingredient{item: i, Count: newCount}
 }
 
 func WriteToFile(fileName string, content string) {

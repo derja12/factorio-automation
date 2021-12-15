@@ -3,24 +3,26 @@ package main
 import "fmt"
 
 type Item struct {
-	name    string
+	Name    string
 	recipe  *Recipe
 	machine *Machine
 }
 
 type Recipe struct {
-	ingredients []*Ingredient
-	count       int
-	time        float32
+	Ingredients []Ingredient
+	ItemName    string
+	Count       int
+	Time        float32
 }
 
 type Ingredient struct {
-	item  *Item
-	count int
+	item     *Item
+	ItemName string
+	Count    int
 }
 
 type Machine struct {
-	name string
+	Name string
 }
 
 func InitializeRedPotionItems() error {
@@ -28,18 +30,18 @@ func InitializeRedPotionItems() error {
 	copperPlateItem := InitializeCopperPlate()
 	IronGearItem := InitializeIronGear()
 
-	fmt.Println(copperPlateItem.name, copperPlateItem.recipe, copperPlateItem.machine, IronGearItem.name, IronGearItem.recipe.ingredients[0].item.name)
+	fmt.Println(copperPlateItem.Name, copperPlateItem.recipe, copperPlateItem.machine, IronGearItem.Name, IronGearItem.recipe.ingredients[0].item.Name)
 	return nil
 }
 
 func InitializeCopperPlate() *Item {
 	// Create Copper Ore Item / Ingredient
 	copperOreItem := &Item{
-		name: "Copper Ore",
+		Name: "Copper Ore",
 	}
 	copperOreIngredient := &Ingredient{
 		item:  copperOreItem,
-		count: 1,
+		Count: 1,
 	}
 
 	// Create Copper Plate Recipe
@@ -47,13 +49,13 @@ func InitializeCopperPlate() *Item {
 	ingredientsList = append(ingredientsList, copperOreIngredient)
 	copperPlateRecipe := &Recipe{
 		ingredients: ingredientsList,
-		count:       1,
-		time:        3.2,
+		Count:       1,
+		Time:        3.2,
 	}
 
 	// Create Copper Plate Item
 	copperPlateItem := &Item{
-		name:    "Copper Plate",
+		Name:    "Copper Plate",
 		recipe:  copperPlateRecipe,
 		machine: nil,
 	}
@@ -64,11 +66,11 @@ func InitializeCopperPlate() *Item {
 func InitializeIronGear() *Item {
 	// Create Iron Ore Item / Ingredient
 	ironOreItem := &Item{
-		name: "Iron Ore",
+		Name: "Iron Ore",
 	}
 	ironOreIngredient := &Ingredient{
 		item:  ironOreItem,
-		count: 1,
+		Count: 1,
 	}
 
 	// Create Iron Plate Recipe
@@ -76,19 +78,19 @@ func InitializeIronGear() *Item {
 	ingredientsList = append(ingredientsList, ironOreIngredient)
 	ironPlateRecipe := &Recipe{
 		ingredients: ingredientsList,
-		count:       1,
-		time:        3.2,
+		Count:       1,
+		Time:        3.2,
 	}
 
 	// Create Iron Plate Item
 	ironPlateItem := &Item{
-		name:    "Iron Plate",
+		Name:    "Iron Plate",
 		recipe:  ironPlateRecipe,
 		machine: nil,
 	}
 	ironPlateIngredient := &Ingredient{
 		item:  ironPlateItem,
-		count: 2,
+		Count: 2,
 	}
 
 	// Create Iron Gear Recipe
@@ -96,13 +98,13 @@ func InitializeIronGear() *Item {
 	ingredientsList = append(ingredientsList, ironPlateIngredient)
 	ironGearRecipe := &Recipe{
 		ingredients: ingredientsList,
-		count:       1,
-		time:        .5,
+		Count:       1,
+		Time:        .5,
 	}
 
 	// Create Iron Gear Item
 	ironGearItem := &Item{
-		name:    "Iron Gear",
+		Name:    "Iron Gear",
 		recipe:  ironGearRecipe,
 		machine: nil,
 	}
